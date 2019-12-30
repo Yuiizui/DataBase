@@ -4,7 +4,7 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template
-from FlaskWebProject1 import app
+from FlaskWebProject1 import app,mongo
 
 @app.route('/')
 @app.route('/home')
@@ -29,19 +29,27 @@ def contact():
 
 @app.route('/about')
 @app.route('/about/<string:name>')
-def about():
+def about(name= None):
     """Renders the about page."""
+    user = {'name':'Michael', 'age':18, 'scores':[{'course': 'Math', 'score': 76}]}
+    mongo.db.users.insert_one(user)
+
+    print(name)
     if name is None:
-        users = mongo.db.users.find()
-        return render_template('users.html', users=users)
+        user_1 = mongo.db.users.find_one({'name': 'Michael'})
+        if user is not None:
+            return render_template('users.html', users=[user_1])
+        else:
+            return 'No user found!'
+         
     else:
         user = mongo.db.users.find_one({'name': name})
         if user is not None:
             return render_template('users.html', users=[user])
         else:
             return 'No user found!'
-
     
+   
        
 @app.route('/user')
 @app.route('/user/<string:name>')

@@ -7,14 +7,10 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 app.config.update(
-    MONGO_URI='mongodb://localhost:27017/flask',
-    MONGO_USERNAME='bjhee',
-    MONGO_PASSWORD='111111',
-    MONGO_TEST_URI='mongodb://localhost:27017/test'
+    MONGO_URI='mongodb+srv://yujui:paul1939@cluster0-omrxj.gcp.mongodb.net/test?retryWrites=true&w=majority',
+    MONGO_USERNAME='yujui',
+    MONGO_PASSWORD='paul1939'
 )
 
 mongo = PyMongo(app)
-#hihihi@@
-#ggggggg
-#test1
 import FlaskWebProject1.views
