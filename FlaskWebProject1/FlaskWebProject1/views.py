@@ -62,7 +62,7 @@ def about(name= None):
 
     #user = {'name':'Michael', 'age':18, 'scores':[{'course': 'Math', 'score': 76}]}
     users = mongo.db.users.find()
-    print(users.count())
+    # mongo.db.users.remove({})
     if users.count() is 0:
         for k, v in coursemap_list.items():
             mongo.db.users.insert(v)
