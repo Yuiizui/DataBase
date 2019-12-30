@@ -11,6 +11,9 @@ app.config.update(
     MONGO_USERNAME='yujui',
     MONGO_PASSWORD='paul1939'
 )
+app.config["DEBUG"] = True
+app.config["JSON_AS_ASCII"] = False
+# app.config.from_envvar(app.config)
 
 mongo = PyMongo(app)
 import FlaskWebProject1.views
