@@ -59,16 +59,18 @@ def about(name= None):
         coursemap_list[str(i)] = row_dict
     #print(coursemap_list)
     coursemap_user = jsonify(coursemap_list)
-    print(coursemap_user)
-    # print(coursemap_user)
+
     #user = {'name':'Michael', 'age':18, 'scores':[{'course': 'Math', 'score': 76}]}
-    
-    mongo.db.users.insert(coursemap_list)
+    users = mongo.db.users.find()
+    print(users.count())
+    if users.count() is 0:
+        for k, v in coursemap_list.items():
+            mongo.db.users.insert(v)
     if name is None:
-        user_1 = mongo.db.users.find()
-        print(user_1)
-        if user_1 is not None:
-            return render_template('users.html', users=[user_1])
+        users = mongo.db.users.find()
+        #print(users)
+        if users is not None:
+            return render_template('users.html',  users=users)
         else:
             return 'No user found!'
          
