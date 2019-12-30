@@ -15,4 +15,5 @@ app.config.update(
 
 mongo = PyMongo(app)
 #hihihi@@
+#ggggggg
 import FlaskWebProject1.views
