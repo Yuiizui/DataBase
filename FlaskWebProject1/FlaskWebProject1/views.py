@@ -59,7 +59,7 @@ def about(name= None):
         coursemap_list[str(i)] = row_dict
     #print(coursemap_list)
     coursemap_user = jsonify(coursemap_list)
-    #print(coursemap_list)
+    print(coursemap_user)
     # print(coursemap_user)
     #user = {'name':'Michael', 'age':18, 'scores':[{'course': 'Math', 'score': 76}]}
     
