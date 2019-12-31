@@ -5,7 +5,7 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from flask import jsonify
-from FlaskWebProject1 import app,mongo,topic,school,course,lecturers
+from FlaskWebProject1 import app,mongo
 import pandas as pd
 import numpy as np
 @app.route('/')
@@ -67,20 +67,24 @@ def about(name= None):
     #     for k, v in coursemap_list.items():
     #         mongo.db.users1.insert(v)
     # print(name_catego)
-    dic = {}
-    tmp = mongo.db.coursemap.find({'Title':'人工智慧與智慧型代理人導論'})
+    # print(course)
+    # tmp = course.get('Author')
+    # print(tmp)
+    query = '資料結構'
+    column = 'label'
+    tmp = mongo.db.all_course_detail.find({column:{'$regex':query}})
     if name is None:
         if tmp is not None:
-            return render_template('users.html',  users=tmp)
+            return render_template('users.html',  users=tmp,title=query)
         else:
             return 'No user found!'
          
-    else:
-        user = mongo.db.users1.find_one({'name': name})
-        if user is not None:
-            return render_template('users.html', users=[users_1])
-        else:
-            return 'No user found!'
+    # else:
+    #     user = mongo.db.users1.find_one({'name': name})
+    #     if user is not None:
+    #         return render_template('users.html', users=[users_1])
+    #     else:
+    #         return 'No user found!'
     
    
        

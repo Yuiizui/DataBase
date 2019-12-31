@@ -1,21 +1,26 @@
 ﻿<!doctype html>
 <title>PyMongo Sample</title>
 
-<h1>Users:</h1>
-<div class="box">
+<h1>{{title}}</h1>
+<!-- <div class="box">
     <div class="container-1">
         <link rel="stylesheet" type="text/css" href="/static/content/users.css" />
         <span class="icon"><i class="fa fa-search"></i></span>
         <input type="search" id="search" placeholder="Search..." />
     </div>
-  </div>
+  </div> -->
 <ul>
-
-    <!-- {% for k,v in users.items() %}
-    <li>{{k}} -> {{v}}</li> -->
     {% for user in users %}
-    {% for k,v in user.items() %}
-    <li>{{k}} -> {{v}}</li>
-
+    <b>Title: {{user.Title}}</b>
+    <li>Language: {{user.Language}}</li>
+    <li>Provider: {{user.Provider}}</li>
+    <li>PhotoLink: {{user.PhotoLink}}</li>
+    <li>DirectLink: {{user.DirectLink}}</li>
+    <li>Description: {{user.Description}}</li>
+    <li>Author: {{user.Author}}</li>
+    <li>label: {{user.label}}</li>
+    <li>Pre: {{user.pre}}</li>
+    <b>========================================================================================================</b>
+    <br>
     {% endfor %}
 </ul>
