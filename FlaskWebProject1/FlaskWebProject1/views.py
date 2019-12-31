@@ -5,10 +5,9 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from flask import jsonify
-from FlaskWebProject1 import app,mongo
+from FlaskWebProject1 import app,mongo,catego
 import pandas as pd
 import numpy as np
-print("merge!!!")
 @app.route('/')
 @app.route('/home')
 def home():
@@ -34,7 +33,7 @@ def contact():
 @app.route('/search/<string:name>')
 def about(name= None):
     """Renders the about page."""
-    # coursemap = pd.read_excel('/Users/helen/Desktop/DataBase/FlaskWebProject1/FlaskWebProject1/json_zip_1.xlsx')
+    # coursemap = pd.read_excel('/Users/helen/Desktop/DataBase/FlaskWebProject1/FlaskWebProject1/coursemap.xlsx')
     # coursemap_list = {}
     # nrows = coursemap.shape[0]
     # for i in range(nrows):
@@ -49,22 +48,35 @@ def about(name= None):
     #         elif type(val) is np.float64:
     #             row_dict[idx] = float(val)
     #     coursemap_list[str(i)] = row_dict
-    # coursemap_user = jsonify(coursemap_list)
-    users1 = mongo.db.users1.find()
-    users2 = mongo.db.users2.find()
-    # if users2.count() is 0:
+    #coursemap_user = jsonify(coursemap_list)
+
+    # u1 = [d for d in users_1]
+    # u2 = [d for d in users_2]
+    #print(u1)
+    # for a in users_1:
+    #     print(a)
+    # name_cat = {}
+    # for u2 in users_2:
+    #     for u1 in users_1:
+    #         if(u1['index']==eval(u2['tmpCateg'])[0]):
+    #             print("hihi")
+    #             name_cat[u1['name']] = u2['cTitle']
+                
+    # print(name_cat)
+    # if users_1.count() is 0:
     #     for k, v in coursemap_list.items():
-    #         mongo.db.users2.insert(v)
+    #         mongo.db.users1.insert(v)
+    # print(name_catego)
     if name is None:
-        if users2 is not None:
-            return render_template('users.html',  users=users2)
+        if catego is not None:
+            return render_template('users.html',  users=catego)
         else:
             return 'No user found!'
          
     else:
-        user = mongo.db.users.find_one({'name': name})
+        user = mongo.db.users1.find_one({'name': name})
         if user is not None:
-            return render_template('users.html', users=[user])
+            return render_template('users.html', users=[users_1])
         else:
             return 'No user found!'
     

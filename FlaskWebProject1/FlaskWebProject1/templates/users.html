@@ -11,8 +11,8 @@
   </div>
 <ul>
 
-    {% for user in users %}
-    <li>{{user.index}}, {{user.name}}, {{user.pre}}, {{user.post}}, {{user.mutual}}</li>
+    {% for k,v in users.items() %}
+    <li>{{k}} -> {{v}}</li>
 
     {% endfor %}
 </ul>
