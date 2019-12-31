@@ -11,7 +11,10 @@
   </div>
 <ul>
 
-    {% for k,v in users.items() %}
+    <!-- {% for k,v in users.items() %}
+    <li>{{k}} -> {{v}}</li> -->
+    {% for user in users %}
+    {% for k,v in user.items() %}
     <li>{{k}} -> {{v}}</li>
 
     {% endfor %}

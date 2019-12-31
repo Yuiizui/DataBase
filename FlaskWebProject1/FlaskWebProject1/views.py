@@ -48,7 +48,7 @@ def about(name= None):
     #         elif type(val) is np.float64:
     #             row_dict[idx] = float(val)
     #     coursemap_list[str(i)] = row_dict
-    #coursemap_user = jsonify(coursemap_list)
+    #course_ = jsonify(course)
 
     # u1 = [d for d in users_1]
     # u2 = [d for d in users_2]
@@ -67,9 +67,11 @@ def about(name= None):
     #     for k, v in coursemap_list.items():
     #         mongo.db.users1.insert(v)
     # print(name_catego)
+    dic = {}
+    tmp = mongo.db.coursemap.find({'Title':'人工智慧與智慧型代理人導論'})
     if name is None:
-        if course is not None:
-            return render_template('users.html',  users=course)
+        if tmp is not None:
+            return render_template('users.html',  users=tmp)
         else:
             return 'No user found!'
          
