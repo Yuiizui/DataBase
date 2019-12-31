@@ -8,7 +8,7 @@ from flask import jsonify
 from FlaskWebProject1 import app,mongo
 import pandas as pd
 import numpy as np
-print("merge!!")
+
 @app.route('/')
 @app.route('/home')
 def home():
