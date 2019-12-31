@@ -55,7 +55,7 @@ mongo = PyMongo(app)
 #         lecturers[u2['cAuthor']] = []
 #     lecturers[u2['cAuthor']].append(u2['cTitle'])
 #     topic[u2['label']].append(u2['cTitle'])
-#print(course)
+# print(course)
 # for k, v in course.items():
 #     mongo.db.all_course_detail.insert(v)
 import FlaskWebProject1.views

@@ -70,8 +70,8 @@ def about(name= None):
     # print(course)
     # tmp = course.get('Author')
     # print(tmp)
-    query = '資料結構'
-    column = 'label'
+    query = 'Ortal Arel'
+    column = 'Author'
     tmp = mongo.db.all_course_detail.find({column:{'$regex':query}})
     if name is None:
         if tmp is not None:
