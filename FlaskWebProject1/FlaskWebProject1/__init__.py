@@ -25,10 +25,9 @@ topic = {}
 lecturers = {}
 course = {}
 school = {}
+pre = {}
 for u1 in coursemap:
     topic[u1['name']] = []
-# for u2 in json_zip:
-#     lecturers[u2['cAuthor']] = []
 for u2 in json_zip:
     dic = {}
     dic['Provider'] = u2['cProvider']
@@ -38,6 +37,18 @@ for u2 in json_zip:
     dic['Author'] = u2['cAuthor']
     dic['label'] = u2['label']
     dic['Language'] = u2['cLanguage']
+    cat_ = eval(u2['tmpCateg'])[0]
+    tmp = mongo.db.coursemap.find_one({'index':cat_})
+    if(tmp is None):
+        dic['pre'] = []
+    else:
+        # print(u2['tmpCateg'],cat_)
+        # print(cat_,tmp['pre'])
+        dic['pre'] = []
+        for k in range(0,len(eval(tmp['pre']))):
+            pre_course = eval(tmp['pre'])[k]
+            find_name = mongo.db.coursemap.find_one({'index':pre_course})
+            dic['pre'].append(find_name['name'])
     course[u2['cTitle']] = dic
     if(lecturers.get(u2['cAuthor']) is None):
         lecturers[u2['cAuthor']] = []

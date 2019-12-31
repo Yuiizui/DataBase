@@ -68,8 +68,8 @@ def about(name= None):
     #         mongo.db.users1.insert(v)
     # print(name_catego)
     if name is None:
-        if lecturers is not None:
-            return render_template('users.html',  users=lecturers)
+        if course is not None:
+            return render_template('users.html',  users=course)
         else:
             return 'No user found!'
          
