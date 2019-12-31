@@ -11,6 +11,7 @@ import numpy as np
 print("merge!!!")
 @app.route('/')
 @app.route('/home')
+# This is just a test
 def home():
     """Renders the home page."""
     return render_template(
