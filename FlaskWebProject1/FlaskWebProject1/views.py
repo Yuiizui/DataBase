@@ -5,7 +5,7 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template
 from flask import jsonify
-from FlaskWebProject1 import app,mongo,catego
+from FlaskWebProject1 import app,mongo,topic,school,course,lecturers
 import pandas as pd
 import numpy as np
 @app.route('/')
@@ -68,8 +68,8 @@ def about(name= None):
     #         mongo.db.users1.insert(v)
     # print(name_catego)
     if name is None:
-        if catego is not None:
-            return render_template('users.html',  users=catego)
+        if lecturers is not None:
+            return render_template('users.html',  users=lecturers)
         else:
             return 'No user found!'
          

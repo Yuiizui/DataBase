@@ -19,11 +19,28 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/test"
 app.config["DEBUG"] = True
 app.config["JSON_AS_ASCII"] = False
 mongo = PyMongo(app)
-users_1 = mongo.db.coursemap.find({})
-users_2 = mongo.db.json_zip.find({})
-catego = {}
-for u1 in users_1:
-    catego[u1['name']] = []
-for u2 in users_2:
-    catego[u2['label']].append(u2['cTitle'])
+coursemap = mongo.db.coursemap.find({})
+json_zip = mongo.db.json_zip.find({})
+topic = {}
+lecturers = {}
+course = {}
+school = {}
+for u1 in coursemap:
+    topic[u1['name']] = []
+# for u2 in json_zip:
+#     lecturers[u2['cAuthor']] = []
+for u2 in json_zip:
+    dic = {}
+    dic['Provider'] = u2['cProvider']
+    dic['PhotoLink'] = u2['cPhotoLink']
+    dic['DirectLink'] = u2['cDirectLink']
+    dic['Description'] = u2['cDescription']
+    dic['Author'] = u2['cAuthor']
+    dic['label'] = u2['label']
+    dic['Language'] = u2['cLanguage']
+    course[u2['cTitle']] = dic
+    if(lecturers.get(u2['cAuthor']) is None):
+        lecturers[u2['cAuthor']] = []
+    lecturers[u2['cAuthor']].append(u2['cTitle'])
+    topic[u2['label']].append(u2['cTitle'])
 import FlaskWebProject1.views
