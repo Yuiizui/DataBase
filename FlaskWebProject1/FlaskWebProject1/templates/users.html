@@ -4,12 +4,11 @@
 <title>Searching </title>
 
 <!-- search form 6 -->
-<div class="button_box2">
-    <form class="form-wrapper-2 cf" name="form" id="form">
-        <input type="text" placeholder="Search here..." required>
-        <button name="search_box" id="search_box" type="submit" onclick=ShowMeDate() value="gg">Search</button>
-    </form>
-</div>
+<form>
+    <input type="text" id="input_id" value="">
+    <input type="button" value="Submit" onclick="wawa()" />
+    <div id="alert" style="color: red"></div>
+</form>
 
 {% for user in users %}
 <p>
