@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,6 +7,17 @@
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/users.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/search_box.css" />
+    <script type="text/javascript">
+
+        function ShowMeDate() {
+            var Today = new Date();
+            var form = document.forms['form'];
+            var input = form.elements.search_box.value;
+            alert(input);
+
+        }
+    </script>
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 
@@ -19,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Application name</a>
+                <a href="/" class="navbar-brand">Course Searching Platform</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -35,7 +46,7 @@
         {% block content %}{% endblock %}
         <hr />
         <footer>
-            <p>&copy; {{ year }} - My Flask Application</p>
+            <p>&copy; {{ year }} - Course searching platform</p>
         </footer>
     </div>
 

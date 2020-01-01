@@ -1,31 +1,14 @@
-﻿<!doctype html>
+﻿{% extends "layout.html" %}
+{% block content %}
+
 <title>Searching </title>
 
-<html>
-<head>
-    <title>Design search Button</title>
-    <link rel="stylesheet" type="text/css" href="/static/content/search_box.css" />
-    <script type="text/javascript">
-        
-        function ShowMeDate() {
-            var Today = new Date();
-            var form = document.forms['form'];
-            var input = form.elements.search_box.value;
-            alert(input);
-            
-        }
-    </script>
-    
-</head>
-<body>
-    <!-- search form 6 -->
-    <div class="button_box2">
-        <form class="form-wrapper-2 cf" name ="form" id="form">
-            <input type="text" placeholder="Search here..." required>
-            <button name ="search_box" id="search_box" type="submit" onclick=ShowMeDate() value="gg">Search</button>
-        </form>
-    </div>
-</body>
-</html>
+<!-- search form 6 -->
+<div class="button_box2">
+     <form class="form-wrapper-2 cf" name="form" id="form">
+         <input type="text" placeholder="Search here..." required>
+         <button name="search_box" id="search_box" type="submit" onclick=ShowMeDate() value="gg">Search</button>
+     </form>
+</div>
 
-
+{% endblock %}
