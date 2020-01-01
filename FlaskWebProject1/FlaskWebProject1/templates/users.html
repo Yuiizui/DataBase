@@ -5,10 +5,24 @@
 
 <!-- search form 6 -->
 <div class="button_box2">
-     <form class="form-wrapper-2 cf" name="form" id="form">
-         <input type="text" placeholder="Search here..." required>
-         <button name="search_box" id="search_box" type="submit" onclick=ShowMeDate() value="gg">Search</button>
-     </form>
+    <form class="form-wrapper-2 cf" name="form" id="form">
+        <input type="text" placeholder="Search here..." required>
+        <button name="search_box" id="search_box" type="submit" onclick=ShowMeDate() value="gg">Search</button>
+    </form>
 </div>
+
+{% for user in users %}
+<p>
+    Title: {{user.Title}}
+    Language: {{user.Language}}
+    Provider: {{user.Provider}}
+    PhotoLink: {{user.PhotoLink}}
+    DirectLink: {{user.DirectLink}}
+    Description: {{user.Description}}
+    Author: {{user.Author}}
+    label: {{user.label}}
+    Pre: {{user.pre}}
+</p>
+{% endfor %}
 
 {% endblock %}

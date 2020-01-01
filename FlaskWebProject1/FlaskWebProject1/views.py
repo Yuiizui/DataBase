@@ -8,11 +8,10 @@ from flask import jsonify
 from FlaskWebProject1 import app,mongo
 import pandas as pd
 import numpy as np
-print("merge!!!")
+
+
 @app.route('/')
 @app.route('/home')
-# This is just a test
-# Test 2
 def home():
     """Renders the home page."""
     return render_template(
