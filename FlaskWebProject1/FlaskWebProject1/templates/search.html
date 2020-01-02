@@ -1,0 +1,133 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Retrospect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Generic - Retrospect by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="static/content/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="{{ url_for('home') }}">Course Searching Platform</a></h1>
+			<a href="#nav">Menu</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="links">
+				<li><a href={{ url_for('home') }}>Home</a></li>
+				<li><a href={{ url_for('about') }}>Generic</a></li>
+				<li><a href={{ url_for('about') }}>Elements</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="container">
+
+				<header class="major special">
+					<h2>Search</h2>
+					<p>Searching for the courses you're interested in</p>
+				</header>
+				<form name='form' id='form' method='POST' action='/search'>
+					<select name="input_cat">
+						<option value="cLanguage">語言</option>
+						<option value="cAuthor">授課教師</option>
+						<option value="label">課程分類</option>
+						<option value="pre">需先修課程</option>
+						<option value="cTitle">課程名稱</option>
+						<option value="cProvider">課程提供者 (組織、學校)</option>
+					</select>
+					<input type="text" name="input_text" id="input_id" value="" placeholder="Search here" required>
+					<!-- <input type="text" name = "input_category" id="input_category" value="類別"> -->
+					<input type="submit" value="Submit" />
+					<div id="alert" style="color: red"></div>
+				</form>
+				<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
+				{% for user in users %}
+				<p>
+					課程名稱 (Title): {{user.cTitle}}
+					<br><br>
+					語言 (Language): {{user.cLanguage}}
+					<br><br>
+					課程提供者 (Provider): {{user.cProvider}}
+					<br><br>
+					相片連結 (PhotoLink): <a href={{user.cPhotoLink}} target="_blank">{{user.cPhotoLink}}</a>
+					<br><br>
+					網站連結 (DirectLink): <a href={{user.cDirectLink}} target="_blank">{{user.cDirectLink}}</a>
+					<br><br>
+					描述 (Description): {{user.cDescription}}
+					<br><br>
+					授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
+					<br><br>
+					課程分類 (Label): {{user.label.replace('[','').replace(']','').replace("'",'')}}
+					<br><br>
+					需先修課程 (Pre): {% for pre in Pre %}{{pre.replace('[', '').replace(']', '').replace("'", '')}}{% endfor %}
+				</p>
+				<style>
+					hr.style-one {
+						border: 0;
+						height: 1px;
+						background: #333;
+						background-image: linear-gradient(to right, #ccc, #333, #ccc);
+					}
+				</style>
+				<hr class="style-one">
+				{% endfor %}
+
+
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li>
+						<a href="#" class="icon fa-facebook">
+							<span class="label">Facebook</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="icon fa-twitter">
+							<span class="label">Twitter</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="icon fa-instagram">
+							<span class="label">Instagram</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="icon fa-linkedin">
+							<span class="label">LinkedIn</span>
+						</a>
+					</li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled.</li>
+					<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+				</ul>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+			<script src="/static/scripts/jquery.min.js"></script>
+			<script src="/static/scripts/skel.min.js"></script>
+			<script src="/static/scripts/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/static/scripts/main.js"></script>
+
+	</body>
+</html>

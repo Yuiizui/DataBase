@@ -1,0 +1,173 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Modified by Yujui_Chen on 1/2
+-->
+<html>
+<head>
+	<title>Course searching platform</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="/static/content/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="/static/content/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="/static/content/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="/static/content/ie9.css" /><![endif]-->
+	<link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+	<link rel="stylesheet" type="text/css" href="/static/content/users.css" />
+	<link rel="stylesheet" type="text/css" href="/static/content/search_box.css" />
+</head>
+	<body class="landing">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<h1><a href="{{ url_for('home') }}">Course Searching Platform</a></h1>
+				<a href="#nav">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="{{ url_for('home') }}">Home</a></li>
+					<li><a href={{ url_for('about') }}>Search</a></li>
+					<li><a href="{{ url_for('contact') }}">Contact</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section id="banner">
+				<i class="icon fa-diamond"></i>
+				<h2>Easy to use!!</h2>
+				<p>Search for courses based on topics, lectures, schools, etc.</p>
+				<ul class="actions">
+					<li><a href="#" class="button big special">Learn More</a></li>
+				</ul>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style1">
+				<div class="inner">
+					<article class="feature left">
+						<span class="image"><img src="/static/images/pic01.jpg" alt="" /></span>
+						<div class="content">
+							<h2>Basic search</h2>
+							<p>You can easily use this function to search for courses you are interested in.</p>
+							<ul class="actions">
+								<li>
+									<a href="#" class="button alt">More</a>
+								</li>
+							</ul>
+						</div>
+					</article>
+					<article class="feature right">
+						<span class="image"><img src="/static/images/pic02.jpg" alt="" /></span>
+						<div class="content">
+							<h2>Advanced search</h2>
+							<p>You can easily use this function to find out the relationship between classes, such as finding prerequisites courses, similar courses and relevant areas.</p>
+							<ul class="actions">
+								<li>
+									<a href="#" class="button alt">More</a>
+								</li>
+							</ul>
+						</div>
+					</article>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper special">
+				<div class="inner">
+					<header class="major narrow">
+						<h2>Development team</h2>
+					</header>
+					<div class="image-grid">
+						<a href="#" class="image"><img src="/static/images/pic03.jpg" alt="" /></a>
+						<a href="#" class="image"><img src="/static/images/pic04.jpg" alt="" /></a>
+						<a href="#" class="image"><img src="/static/images/pic05.jpg" alt="" /></a>
+						<a href="#" class="image"><img src="/static/images/pic06.jpg" alt="" /></a>
+						<a href="#" class="image"><img src="/static/images/pic07.jpg" alt="" /></a>
+						<a href="#" class="image"><img src="/static/images/pic08.jpg" alt="" /></a>
+						<a href="#" class="image"><img src="/static/images/pic09.jpg" alt="" /></a>
+						<a href="#" class="image"><img src="/static/images/pic10.jpg" alt="" /></a>
+					</div>
+					<ul class="actions">
+						<li><a href="#" class="button big alt">More info</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style3 special">
+				<div class="inner">
+					<header class="major narrow	">
+						<h2>Design idea</h2>
+						<p></p>
+					</header>
+					<ul class="actions">
+						<li><a href="#" class="button big alt">More info</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- Four -->
+			<section id="four" class="wrapper style2 special">
+				<div class="inner">
+					<header class="major narrow">
+						<h2>Get in touch</h2>
+						<p>Feel free to send any questions</p>
+					</header>
+					<form action="#" method="POST">
+						<div class="container 75%">
+							<div class="row uniform 50%">
+								<div class="6u 12u$(xsmall)">
+									<input name="name" placeholder="Name" type="text" />
+								</div>
+								<div class="6u$ 12u$(xsmall)">
+									<input name="email" placeholder="Email" type="email" />
+								</div>
+								<div class="12u$">
+									<textarea name="message" placeholder="Message" rows="4"></textarea>
+								</div>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" class="special" value="Submit" /></li>
+							<li><input type="reset" class="alt" value="Reset" /></li>
+						</ul>
+					</form>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-facebook">
+							<span class="label">Facebook</span>
+						</a></li>
+						<li><a href="#" class="icon fa-twitter">
+							<span class="label">Twitter</span>
+						</a></li>
+						<li><a href="#" class="icon fa-instagram">
+							<span class="label">Instagram</span>
+						</a></li>
+						<li><a href="#" class="icon fa-linkedin">
+							<span class="label">LinkedIn</span>
+						</a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled.</li>
+						<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/static/scripts/jquery.min.js"></script>
+			<script src="/static/scripts/skel.min.js"></script>
+			<script src="/static/scripts/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/static/scripts/main.js"></script>
+
+	</body>
+</html>

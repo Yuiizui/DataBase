@@ -41,7 +41,15 @@
     <Folder Include="FlaskWebProject1\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FlaskWebProject1\static\content\main.css" />
     <Content Include="FlaskWebProject1\static\content\search_box.css" />
+    <Content Include="FlaskWebProject1\static\scripts\jquery.min.js" />
+    <Content Include="FlaskWebProject1\static\scripts\main.js" />
+    <Content Include="FlaskWebProject1\static\scripts\skel.min.js" />
+    <Content Include="FlaskWebProject1\static\scripts\util.js" />
+    <Content Include="FlaskWebProject1\templates\elements.html" />
+    <Content Include="FlaskWebProject1\templates\search.html" />
+    <Content Include="FlaskWebProject1\templates\index_2.html" />
     <Content Include="FlaskWebProject1\templates\users.html" />
     <Content Include="requirements.txt" />
     <Content Include="FlaskWebProject1\static\content\bootstrap.css" />

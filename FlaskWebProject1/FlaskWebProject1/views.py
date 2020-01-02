@@ -16,7 +16,7 @@ import numpy as np
 def home():
     """Renders the home page."""
     return render_template(
-        'index.html',
+        'index_2.html',
         title='Home Page',
         year=datetime.now().year,      
     )
@@ -67,9 +67,9 @@ def about(name= None):
                 print(query,column)
                 tmp = mongo.db.all_course_detail.find({column:{'$regex':query}})
                 print(tmp)
-                return render_template('users.html',  users=tmp)
+                return render_template('search.html',  users=tmp)
             else:
-                return render_template('users.html',  users=users3)
+                return render_template('search.html',  users=users3)
         else:
             return 'No user found!'
     # else:

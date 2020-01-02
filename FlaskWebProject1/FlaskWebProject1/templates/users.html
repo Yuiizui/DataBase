@@ -32,15 +32,15 @@
     <br><br>
     相片連結 (PhotoLink): <a href={{user.cPhotoLink}} target="_blank">{{user.cPhotoLink}}</a>
     <br><br>
-    網站連結 (DirectLink): <a href={{user.cDirectLink}} target="_blank" >{{user.cDirectLink}}</a>
+    網站連結 (DirectLink): <a href={{user.cDirectLink}} target="_blank">{{user.cDirectLink}}</a>
     <br><br>
     描述 (Description): {{user.cDescription}}
     <br><br>
-    授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','')}}
+    授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
     <br><br>
-    課程分類 (Label): {{user.label.replace('[','').replace(']','')}}
+    課程分類 (Label): {{user.label.replace('[','').replace(']','').replace("'",'')}}
     <br><br>
-    需先修課程 (Pre): {{user.pre}}
+    需先修課程 (Pre): {% for pre in Pre %}{{pre.replace('[', '').replace(']', '').replace("'", '')}}{% endfor %}
 </p>
 <style>
 hr.style-one {
@@ -48,9 +48,8 @@ hr.style-one {
     height: 1px;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
-}  
+}
 </style>
 <hr class="style-one">
 {% endfor %}
-
 {% endblock %}
