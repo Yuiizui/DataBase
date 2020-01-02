@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<title>Searching </title>
+<p>{{name_template}}</p>
+<!-- search form 6 -->
+<form class="form-wrapper-2 cf" name='form' id='form' method='POST' action='/student'>
+    <select name="input_cat">
+        <option value="used_id">學號</option>
+         <option value="user_name">姓名</option>
+         <option value="department">系所</option>
+         <option value="enrollment_date">入學時間</option>
+    </select>
+    <input type="text" name = "input_text" id="input_id" value="" placeholder="Search here" required>
+    <!-- <input type="text" name = "input_category" id="input_category" value="類別"> -->
+    <input type="submit" value="Submittt"/>
+    <div id="alert" style="color: red"></div>
+</form>
+
+
+
+
+{% for user in users %}
+<p>
+    學號 (Student id): {{user.used_id}}
+    <br><br>
+    姓名 (Name): {{user.user_name}}
+    <br><br>
+    性別 (Gender): {{user.gender}}
+    <br><br>
+    入學時間 (Enrollment date): {{user.enrollment_date}}
+    <br><br>
+    系所 (Department): {{user.department}}
+    <br><br>
+    修過課程及成績 (Courses and Grades): 
+    {% for k in user.grade %}
+    <li>{{k}} : {{user.grade[k]}}</li>
+</p>
+<style>
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}  
+</style>
+<hr class="style-one">
+{% endfor %}
+{% endfor %}
+
+{% endblock %}

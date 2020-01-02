@@ -36,11 +36,14 @@ def contact():
 @app.route('/search/<string:name>',methods=['GET', 'POST'])
 def about(name= None):
     """Renders the about page."""
-    # coursemap = pd.read_excel('/Users/helen/Desktop/DataBase/FlaskWebProject1/FlaskWebProject1/json_zip_1.xlsx')
-    # coursemap_list = {}
-    # nrows = coursemap.shape[0]
+    # mongo.db.create_collection('grade')
+    #mongo.db.student_detail.remove()
+    # student_detail = pd.read_excel('/Users/helen/Desktop/grade.xlsx')
+    # student_detail_list = {}
+    # nrows = student_detail.shape[0]
+    # #print(nrows)
     # for i in range(nrows):
-    #     ser = coursemap.loc[i, :]
+    #     ser = student_detail.loc[i, :]
     #     row_dict = {}
     #     for idx, val in zip(ser.index, ser.values):
     #         idx = str(idx)
@@ -50,14 +53,16 @@ def about(name= None):
     #             row_dict[idx] = int(val)
     #         elif type(val) is np.float64:
     #             row_dict[idx] = float(val)
-    #     coursemap_list[str(i)] = row_dict
-    # coursemap_user = jsonify(coursemap_list)
-    users1 = mongo.db.users1.find()
-    users2 = mongo.db.users2.find()
+    #     student_detail_list[str(i)] = row_dict
+    # coursemap_user = jsonify(student_detail_list)
+    # users1 = mongo.db.users1.find()
+    # users2 = mongo.db.users2.find()
     users3 = mongo.db.all_course_detail.find()
-    # if users2.count() is 0:
-    #     for k, v in coursemap_list.items():
-    #         mongo.db.users2.insert(v)
+    # student_detail = mongo.db.grade.find()
+    # print(student_detail.count())
+    # if student_detail.count() is 0:
+    #     for k, v in student_detail_list.items():
+    #         mongo.db.grade.insert(v)
     if name is None:
         if users3 is not None:
             print(request.method)
@@ -78,6 +83,37 @@ def about(name= None):
     #         return render_template('users.html', users=[user])
     #     else:
     #         return 'No user found!'
+
+@app.route('/student',methods=['GET', 'POST'])
+@app.route('/student/<string:name>',methods=['GET', 'POST'])
+def student(name= None):
+    """Renders the about page."""
+    student_detail_grade = mongo.db.student_detail_course.find({'used_id':23})
+    for a in student_detail_grade:
+        print(a)
+    if name is None:
+        if student_detail_grade is not None:
+            print(request.method)
+            if request.method == 'POST':
+                query = str(request.values['input_text'])
+                column = str(request.values['input_cat'])
+                if(column=='user_name'):
+                    query = query.replace(" ","\xa0")
+                print(query)
+                print(column)
+                if(column=='used_id' or column=='enrollment_date'):
+                    find_detail = mongo.db.student_detail_course.find({column:int(query)})
+                else:
+                    find_detail = mongo.db.student_detail_course.find({column:{'$regex':query}})
+                #student_detail_grade = mongo.db.student_detail_course.find({'used_id':10})
+                # print(tmp)
+                # for a in student_detail_grade:
+                #     print(a)
+                return render_template('student.html',  users=find_detail)
+            else:
+                return render_template('student.html',  users="")
+        else:
+            return 'No user found!'
     
    
        
