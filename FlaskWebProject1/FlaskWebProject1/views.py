@@ -88,7 +88,7 @@ def about(name= None):
 @app.route('/student/<string:name>',methods=['GET', 'POST'])
 def student(name= None):
     """Renders the about page."""
-    student_detail_grade = mongo.db.student_detail_course.find({'used_id':10})
+    student_detail_grade = mongo.db.student_detail_course.find({'used_id':23})
     for a in student_detail_grade:
         print(a)
     if name is None:
