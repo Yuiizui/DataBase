@@ -6,12 +6,12 @@
 <!-- search form 6 -->
 <form class="form-wrapper-2 cf" name='form' id='form' method='POST' action='/search'>
     <select name="input_cat">
-        　<option value="cLanguage">Language</option>
-        　<option value="cAuthor">Author</option>
-         <option value="label">Label</option>
-        　<option value="pre">Pre</option>
-        <option value="cTitle">Title</option>
-        <option value="cProvider">Provider</option>
+        <option value="cLanguage">語言</option>
+         <option value="cAuthor">授課教師</option>
+         <option value="label">課程分類</option>
+         <option value="pre">需先修課程</option>
+         <option value="cTitle">課程名稱</option>
+         <option value="cProvider">課程提供者 (組織、學校)</option>
     </select>
     <input type="text" name = "input_text" id="input_id" value="" placeholder="Search here" required>
     <!-- <input type="text" name = "input_category" id="input_category" value="類別"> -->
@@ -19,29 +19,38 @@
     <div id="alert" style="color: red"></div>
 </form>
 
-</form> 
+
 
 
 {% for user in users %}
 <p>
-    Title: {{user.cTitle}}
-    <br>
-    Language: {{user.cLanguage}}
-    <br>
-    Provider: {{user.cProvider}}
-    <br>
-    PhotoLink: {{user.cPhotoLink}}
-    <br>
-    DirectLink: {{user.cDirectLink}}
-    <br>
-    Description: {{user.cDescription}}
-    <br>
-    Author: {{user.cAuthor}}
-    <br>
-    label: {{user.label}}
-    <br>
-    Pre: {{user.pre}}
+    課程名稱 (Title): {{user.cTitle}}
+    <br><br>
+    語言 (Language): {{user.cLanguage}}
+    <br><br>
+    課程提供者 (Provider): {{user.cProvider}}
+    <br><br>
+    相片連結 (PhotoLink): <a href={{user.cPhotoLink}} target="_blank">{{user.cPhotoLink}}</a>
+    <br><br>
+    網站連結 (DirectLink): <a href={{user.cDirectLink}} target="_blank" >{{user.cDirectLink}}</a>
+    <br><br>
+    描述 (Description): {{user.cDescription}}
+    <br><br>
+    授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','')}}
+    <br><br>
+    課程分類 (Label): {{user.label.replace('[','').replace(']','')}}
+    <br><br>
+    需先修課程 (Pre): {{user.pre}}
 </p>
+<style>
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}  
+</style>
+<hr class="style-one">
 {% endfor %}
 
 {% endblock %}

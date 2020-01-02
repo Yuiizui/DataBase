@@ -66,6 +66,7 @@ def about(name= None):
                 column = request.values['input_cat']
                 print(query,column)
                 tmp = mongo.db.all_course_detail.find({column:{'$regex':query}})
+                print(tmp)
                 return render_template('users.html',  users=tmp)
             else:
                 return render_template('users.html',  users=users3)
