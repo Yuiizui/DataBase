@@ -4,6 +4,7 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template
+from flask import request
 from flask import jsonify
 from FlaskWebProject1 import app,mongo
 import pandas as pd
@@ -31,8 +32,8 @@ def contact():
     )
 
 
-@app.route('/search')
-@app.route('/search/<string:name>')
+@app.route('/search',methods=['GET', 'POST'])
+@app.route('/search/<string:name>',methods=['GET', 'POST'])
 def about(name= None):
     """Renders the about page."""
     # coursemap = pd.read_excel('/Users/helen/Desktop/DataBase/FlaskWebProject1/FlaskWebProject1/json_zip_1.xlsx')
@@ -53,21 +54,29 @@ def about(name= None):
     # coursemap_user = jsonify(coursemap_list)
     users1 = mongo.db.users1.find()
     users2 = mongo.db.users2.find()
+    users3 = mongo.db.all_course_detail.find()
     # if users2.count() is 0:
     #     for k, v in coursemap_list.items():
     #         mongo.db.users2.insert(v)
     if name is None:
-        if users2 is not None:
-            return render_template('users.html',  users=users2)
+        if users3 is not None:
+            print(request.method)
+            if request.method == 'POST':
+                query = request.values['input_text']
+                column = request.values['input_cat']
+                print(query,column)
+                tmp = mongo.db.all_course_detail.find({column:{'$regex':query}})
+                return render_template('users.html',  users=tmp)
+            else:
+                return render_template('users.html',  users=users3)
         else:
             return 'No user found!'
-         
-    else:
-        user = mongo.db.users.find_one({'name': name})
-        if user is not None:
-            return render_template('users.html', users=[user])
-        else:
-            return 'No user found!'
+    # else:
+    #     user = mongo.db.users.find_one({'name': name})
+    #     if user is not None:
+    #         return render_template('users.html', users=[user])
+    #     else:
+    #         return 'No user found!'
     
    
        

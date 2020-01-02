@@ -2,24 +2,44 @@
 {% block content %}
 
 <title>Searching </title>
-
+<p>{{name_template}}</p>
 <!-- search form 6 -->
-<form>
-    <input type="text" id="input_id" value="">
-    <input type="button" value="Submit" onclick="wawa()" />
+<form method='POST' action='/search'>
+    <select name="input_cat">
+        　<option value="cLanguage">Language</option>
+        　<option value="cAuthor">Author</option>
+         <option value="label">Label</option>
+        　<option value="pre">Pre</option>
+        <option value="cTitle">Title</option>
+        <option value="cProvider">Provider</option>
+    </select>
+    <input type="text" name = "input_text" id="input_id" value="">
+    <!-- <input type="text" name = "input_category" id="input_category" value="類別"> -->
+    <input type="submit" value="Submit"/>
     <div id="alert" style="color: red"></div>
 </form>
 
+</form> 
+
+
 {% for user in users %}
 <p>
-    Title: {{user.Title}}
-    Language: {{user.Language}}
-    Provider: {{user.Provider}}
-    PhotoLink: {{user.PhotoLink}}
-    DirectLink: {{user.DirectLink}}
-    Description: {{user.Description}}
-    Author: {{user.Author}}
+    Title: {{user.cTitle}}
+    <br>
+    Language: {{user.cLanguage}}
+    <br>
+    Provider: {{user.cProvider}}
+    <br>
+    PhotoLink: {{user.cPhotoLink}}
+    <br>
+    DirectLink: {{user.cDirectLink}}
+    <br>
+    Description: {{user.cDescription}}
+    <br>
+    Author: {{user.cAuthor}}
+    <br>
     label: {{user.label}}
+    <br>
     Pre: {{user.pre}}
 </p>
 {% endfor %}
