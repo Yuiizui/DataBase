@@ -16,12 +16,15 @@ app.config["JSON_AS_ASCII"] = False
 # app.config.from_envvar(app.config)
 
 mongo = PyMongo(app)
-coursemap = mongo.db.users1.find({})
-json_zip = mongo.db.users2.find({})
-# mongo.db.create_collection('detail')
+# coursemap = mongo.db.users1.find({})
+# json_zip = mongo.db.users2.find({})
+# mongo.db.create_collection('student_detail_course')
 # mongo.db.course_detail.remove()
-# mongo.db.all_course_detail.remove()
-all_course_detail = mongo.db.all_course_detail.find({})
+# mongo.db.student_detail_course.remove()
+# all_course_detail = mongo.db.all_course_detail.find({})
+# student_detail = mongo.db.student_detail.find({})
+# grade = mongo.db.grade.find({})
+# student_detail_course = mongo.db.student_detail_course.find({})
 # print(all_course_detail.count())
 # course = {}
 # pre = {}
@@ -75,5 +78,38 @@ all_course_detail = mongo.db.all_course_detail.find({})
 #     for k, v in course.items():
 #         mongo.db.all_course_detail.insert(v)
 # print(all_course_detail.count())
+# print("end")
+
+# student = {}
+# i = 0
+# for u2 in student_detail:
+#     dic = {}
+    
+#     dic['user_name'] = u2['user_name']
+#     dic['enrollment_date'] = u2['enrollment_date']
+#     dic['gender'] = u2['gender']
+#     dic['department'] = u2['department']
+#     dic['used_id'] = u2['used_id']
+#     cat_ = u2['used_id']
+#     #print(cat_)
+#     tmp1 = mongo.db.grade.find({'used_id':cat_})
+#     #print(tmp)
+#     dic['grade'] = {}
+#     for tmp in tmp1:
+#         if(tmp['course_name']=='Data Visualization and D3.js'):
+#             print("okkkkkk")
+#             tmp['course_name'] = tmp['course_name'].replace(".", "_")
+#             print(tmp['course_name'])
+#         pre_course = tmp['course_name']
+#         pre_course_grade = tmp['score']
+#         dic['grade'][pre_course] = pre_course_grade
+#     student[i] = dic
+#     i += 1
+
+# print(student)
+# if(student_detail_course.count() is 0):
+#     for k, v in student.items():
+#         mongo.db.student_detail_course.insert(v)
+# print(student_detail_course.count())
 # print("end")
 import FlaskWebProject1.views
