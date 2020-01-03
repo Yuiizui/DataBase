@@ -28,9 +28,10 @@
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="{{ url_for('home') }}">Home</a></li>
-					<li><a href={{ url_for('about') }}>Search</a></li>
-					<li><a href={{ url_for('student') }}>Search course</a></li>
+					<li><a href="{{ url_for('about') }}">Search</a></li>
+					<li><a href="{{ url_for('student') }}">Search course</a></li>
 					<li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('graph') }}">Graph</a></li>
 				</ul>
 			</nav>
 
