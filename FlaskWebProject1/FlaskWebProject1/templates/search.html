@@ -59,24 +59,35 @@
 				<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
 				{% for user in users %}
 				<p>
+
 					<a href="{{user.cDirectLink}}"><font size="7" style="color:black">{{user.cTitle}}</font></a>
-					<img align='right' src="{{user.cPhotoLink}}" style="width:135px;height:200px;">
+					{% if user.cPhotoLink  %}
+						<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
+					{% else %}
+					{% endif %}
+
 					<br><br>
 					語言 (Language): {{user.cLanguage}}
 					<br><br>
 					課程提供者 (Provider): {{user.cProvider}}
 					<br><br>
+					{% if user.cDescription|length %}
 					描述 (Description): {{user.cDescription}}
 					<br><br>
+					{% else %}
+					{% endif %}
 					授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
 					課程分類 (Label): {{user.label.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
-					需先修課程 (Pre): 
+
+					需先修課程 (Pre):
+
+
 					{% for p in user.pre %}
 					{{p.replace('[','').replace(']',',').replace("'",'')}}
 					{% endfor %}
-                    <br>
+					<br>
 				</p>
 				<style>
 					hr.style-one {
