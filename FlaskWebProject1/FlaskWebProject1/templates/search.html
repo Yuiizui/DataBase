@@ -67,21 +67,21 @@
 					{% endif %}
 
 					<br><br>
-					語言 (Language): {{user.cLanguage}}
+					<b>語言 (Language):</b> {{user.cLanguage}}
 					<br><br>
-					課程提供者 (Provider): {{user.cProvider}}
+					<b>課程提供者 (Provider):</b> {{user.cProvider}}
 					<br><br>
 					{% if user.cDescription|length %}
-					描述 (Description): {{user.cDescription}}
+					<b>描述 (Description):</b> {{user.cDescription}}
 					<br><br>
 					{% else %}
 					{% endif %}
-					授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
+					<b>授課教師 (Author):</b> {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
-					課程分類 (Label): {{user.label.replace('[','').replace(']','').replace("'",'')}}
+					<b>課程分類 (Label):</b> {{user.label.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
 
-					需先修課程 (Pre):
+					<b>需先修課程 (Pre):</b>
 
 
 					{% for p in user.pre %}
