@@ -83,7 +83,7 @@
 					<b>課程分類 (Label):</b> {{user.label.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
 					{% if user.pre|length %}
-						<b>需先修課程 (Pre):</b>
+						<b>需先修課程 (Prerequisite):</b>
 						{% for p in user.pre %}
 						{{p.replace('[','').replace(']',',').replace("'",'')}}
 						{% endfor %}
