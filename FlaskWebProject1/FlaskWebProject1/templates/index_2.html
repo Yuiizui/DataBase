@@ -42,7 +42,7 @@
 				<h2>Easy to use!!</h2>
 				<p>Search for courses based on topics, lectures, schools, etc.</p>
 				<ul class="actions">
-					<li><a href="#" class="button big special">Learn More</a></li>
+					<li><a href='#one' class="button big special">Learn More</a></li>
 				</ul>
 			</section>
 
@@ -52,11 +52,11 @@
 					<article class="feature left">
 						<span class="image"><img src="/static/images/pic01.jpg" alt="" /></span>
 						<div class="content">
-							<h2>Basic search</h2>
+							<h2>Search</h2>
 							<p>You can easily use this function to search for courses you are interested in.</p>
 							<ul class="actions">
 								<li>
-									<a href="#" class="button alt">More</a>
+									<a href={{ url_for('about') }} class="button alt">Try!!</a>
 								</li>
 							</ul>
 						</div>
@@ -64,11 +64,11 @@
 					<article class="feature right">
 						<span class="image"><img src="/static/images/pic02.jpg" alt="" /></span>
 						<div class="content">
-							<h2>Advanced search</h2>
-							<p>You can easily use this function to find out the relationship between classes, such as finding prerequisites courses, similar courses and relevant areas.</p>
+							<h2>Personal history</h2>
+							<p>You can easily find out the courses you've taken before.</p>
 							<ul class="actions">
 								<li>
-									<a href="#" class="button alt">More</a>
+									<a href={{ url_for('student') }} class="button alt">Try!!</a>
 								</li>
 							</ul>
 						</div>
@@ -86,7 +86,7 @@
 						<img src="/static/images/graph.svg" width="928" height="774" alt="" />
 					</div>
 					<ul class="actions">
-						<li><a href="/graph" class="button big alt">More info</a></li>
+						<li><a href={{ url_for('graph') }} class="button big alt">Try!!</a></li>
 					</ul>
 				</div>
 			</section>
