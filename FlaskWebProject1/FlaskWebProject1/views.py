@@ -13,9 +13,17 @@ from py2neo import Graph
 
 
 @app.route('/')
-@app.route('/home')
+@app.route('/',methods=['GET', 'POST'])
 def home():
     """Renders the home page."""
+    if request.method == 'POST':
+        print("hi")
+        name = request.values['name']
+        print("hi/")
+        email = request.values['email']
+        message = request.values['message']
+        print(name,email,message)
+        mongo.db.discussion_board.insert({ 'name': name, 'email': email,'message':message })
     return render_template(
         'index_2.html',
         title='Home Page',
