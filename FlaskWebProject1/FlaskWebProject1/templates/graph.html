@@ -45,7 +45,7 @@
 				{% for node in nodes %}
                 <div style="outline: 3px solid gray;text-align:center;">
     				<form name='form' id='form' method='POST' action='/graph'>
-                        <p><b>{{node.name}}</b></p>
+                        <p><font size="5" style="color:black"><b>{{node.name}}</b></font></p>
                         <input type="hidden" name="node" value="{{node.id}}">
     					<input type="submit" name="relation" value="prerequisite" />
                         <input type="submit" name="relation" value="advance" />
