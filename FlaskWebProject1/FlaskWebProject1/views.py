@@ -9,6 +9,7 @@ from flask import jsonify
 from FlaskWebProject1 import app,mongo
 import pandas as pd
 import numpy as np
+from py2neo import Graph
 
 
 @app.route('/')
@@ -125,3 +126,27 @@ def user(name=None):
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+
+@app.route('/graph',methods=['GET', 'POST'])
+@app.route('/graph/<string:name>',methods=['GET', 'POST'])
+def graph(name= None):
+    graph = Graph("bolt://hobby-fljoljlkjmgggbkedobbdgel.dbs.graphenedb.com:24787", username="adm", password="b.PZvb6ZSYxW2J.MTZodvtz6QoxLrWR",secure=True)
+    if request.method == 'GET':
+        nodes=graph.run('MATCH (s:Area) RETURN s.id AS id,s.name AS name').data()
+        return render_template(
+            'graph.html',
+            title='Graph',
+            nodes=nodes
+        )
+        #g=graph.run('MATCH (s:Area)-[:advance]->(t:Area) WHERE s.id=6 RETURN t.id').data()
+        pass
+    if request.method == 'POST':
+        node = str(request.values['node'])
+        relation = str(request.values['relation'])
+        nodes=graph.run('MATCH (s:Area)-[:'+relation+']->(t:Area) WHERE s.id='+str(node)+' RETURN t.id AS id, t.name AS name').data()
+        return render_template(
+            'graph.html',
+            title='Graph',
+            nodes=nodes
+        )

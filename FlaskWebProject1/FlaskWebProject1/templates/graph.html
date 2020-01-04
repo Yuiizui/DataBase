@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
 	templated.co @templatedco
@@ -39,48 +39,18 @@
 
 				<header class="major special">
 					<h2>Search</h2>
-					<p>Searching for the courses you're interested in</p>
+					<p>Searching for Advance Course and Prerequisite Course</p>
 				</header>
-				<form name='form' id='form' method='POST' action='/student'>
-					<select name="input_cat">
-                        <option value="used_id">學號</option>
-                        <option value="user_name">姓名</option>
-                        <option value="department">系所</option>
-                        <option value="enrollment_date">入學時間</option>
-					</select>
-					<input type="text" name="input_text" id="input_id" value="" placeholder="Search here" required>
-					<!-- <input type="text" name = "input_category" id="input_category" value="類別"> -->
-					<input type="submit" value="Submit" />
-					<div id="alert" style="color: red"></div>
+				{% for node in nodes %}
+                
+				<form name='form' id='form' method='POST' action='/graph'>
+                    <p>{{node.name}}</p>
+                    <input type="hidden" name="node" value="{{node.id}}">
+					<input type="submit" name="relation" value="prerequisite" />
+                    <input type="submit" name="relation" value="advance" />
 				</form>
-				<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
-				{% for user in users %}
-				<p>
-					學號 (Student id): {{user.used_id}}
-                    <br><br>
-                    姓名 (Name): {{user.user_name}}
-                    <br><br>
-                    性別 (Gender): {{user.gender}}
-                    <br><br>
-                    入學時間 (Enrollment date): {{user.enrollment_date}}
-                    <br><br>
-                    系所 (Department): {{user.department}}
-                    <br><br>
-                    修過課程及成績 (Courses and Grades): 
-                    {% for k in user.grade %}
-                    <li>{{k}} : {{user.grade[k]}}</li>
-				</p>
-				<style>
-					hr.style-one {
-						border: 0;
-						height: 1px;
-						background: #333;
-						background-image: linear-gradient(to right, #ccc, #333, #ccc);
-					}
-				</style>
-				<hr class="style-one">
-                {% endfor %}
-                {% endfor %}
+                
+				{% endfor %}
 
 
 			</div>
