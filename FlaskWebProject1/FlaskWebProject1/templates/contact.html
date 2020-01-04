@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 <html>
 <head>
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="static/content/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <link rel="stylesheet" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -23,9 +24,9 @@
         <ul class="links">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">Search</a></li>
-            <li><a href="{{ url_for('student') }}">Search course</a></li>
+            <li><a href="{{ url_for('student') }}">Personal history</a></li>
+            <li><a href="{{ url_for('graph') }}">Course roadmap</a></li>
             <li><a href="{{ url_for('contact') }}">Contact</a></li>
-            <li><a href="{{ url_for('graph') }}">Graph</a></li>
         </ul>
     </nav>
 

@@ -48,8 +48,10 @@
     <Content Include="FlaskWebProject1\static\scripts\skel.min.js" />
     <Content Include="FlaskWebProject1\static\scripts\util.js" />
     <Content Include="FlaskWebProject1\templates\elements.html" />
+    <Content Include="FlaskWebProject1\templates\graph.html" />
     <Content Include="FlaskWebProject1\templates\search.html" />
     <Content Include="FlaskWebProject1\templates\index_2.html" />
+    <Content Include="FlaskWebProject1\templates\student.html" />
     <Content Include="FlaskWebProject1\templates\users.html" />
     <Content Include="requirements.txt" />
     <Content Include="FlaskWebProject1\static\content\bootstrap.css" />
