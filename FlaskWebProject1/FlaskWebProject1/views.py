@@ -16,11 +16,11 @@ from py2neo import Graph
 @app.route('/',methods=['GET', 'POST'])
 def home():
     """Renders the home page."""
-    if request.method == 'POST':
-        name = request.values['name']
-        email = request.values['email']
-        message = request.values['message']
-        mongo.db.discussion_board.insert({ 'name': name, 'email': email,'message':message })
+    # if request.method == 'POST':
+    #     name = request.values['name']
+    #     email = request.values['email']
+    #     message = request.values['message']
+    #     mongo.db.discussion_board.insert({ 'name': name, 'email': email,'message':message })
     return render_template(
         'index_2.html',
         title='Home Page',
@@ -159,3 +159,18 @@ def graph(name= None):
             title='Graph',
             nodes=nodes
         )
+@app.route('/discussion',methods=['GET', 'POST'])
+@app.route('/discussion/<string:name>',methods=['GET', 'POST'])
+def discussion(name= None):
+    """Renders the about page."""
+    discussion_board = mongo.db.discussion_board.find({})
+    if name is None:
+        if discussion_board is not None:
+            if request.method == 'POST':
+                name = request.values['name']
+                email = request.values['email']
+                message = request.values['message']
+                mongo.db.discussion_board.insert({ 'name': name, 'email': email,'message':message })
+            return render_template('discussion.html',  users=discussion_board)
+        else:
+            return 'No user found!'

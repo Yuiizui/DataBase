@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
 	Retrospect by TEMPLATED
 	templated.co @templatedco
@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-	<title>Search</title>
+	<title>Discussion board</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -40,57 +40,15 @@
 			<div class="container">
 
 				<header class="major special">
-					<h2>Search</h2>
-					<p>Searching for the courses you're interested in</p>
+					<h2>Discussion board</h2>
+					<p>FEEL FREE TO SEND ANY FEEDBACK</p>
 				</header>
-				<form name='form' id='form' method='POST' action='/search'>
-					<select name="input_cat">
-						<option value="cLanguage">語言</option>
-						<option value="cAuthor">授課教師</option>
-						<option value="label">課程分類</option>
-						<option value="pre">需先修課程</option>
-						<option value="cTitle">課程名稱</option>
-						<option value="cProvider">課程提供者 (組織、學校)</option>
-					</select>
-					<input type="text" name="input_text" id="input_id" value="" placeholder="Search here" required>
-					<!-- <input type="text" name = "input_category" id="input_category" value="類別"> -->
-					<input type="submit" value="Submit" />
-					<div id="alert" style="color: red"></div>
-				</form>
-				<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
 				{% for user in users %}
-				<p>
-
-					<a href="{{user.cDirectLink}}"><font size="7" style="color:black">{{user.cTitle}}</font></a>
-					{% if user.cPhotoLink  %}
-					<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
-					{% else %}
-					{% endif %}
-
-					<br><br>
-					<b>語言 (Language):</b> {{user.cLanguage}}
-					<br><br>
-					<b>課程提供者 (Provider):</b> {{user.cProvider}}
-					<br><br>
-					{% if user.cDescription|length %}
-					<b>描述 (Description):</b> {{user.cDescription}}
-					<br><br>
-					{% else %}
-					{% endif %}
-					{% if user.cAuthor|length %}
-						<b>授課教師 (Author):</b>  {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
-						<br><br>
-					{% endif %}
-					<b>課程分類 (Label):</b> {{user.label.replace('[','').replace(']','').replace("'",'')}}
-					<br><br>
-					{% if user.pre|length %}
-						<b>需先修課程 (Prerequisite):</b>
-						{% for p in user.pre %}
-						{{p.replace('[','').replace(']',',').replace("'",'')}}
-						{% endfor %}
-						<br>
-					{% endif %}
-				</p>
+					姓名 (Name): {{user.name}}
+                    <br>
+                    信箱 (Email): {{user.email}}
+                    <br>
+                    訊息 (message): {{user.message}}
 				<style>
 					hr.style-one {
 						border: 0;
@@ -100,12 +58,37 @@
 					}
 				</style>
 				<hr class="style-one">
-				{% endfor %}
+                {% endfor %}
 
 
 			</div>
 		</section>
-
+		<section id="four" class="wrapper style2 special">
+			<div class="inner">
+				<header class="major narrow">
+					<h2>Please write down your opinion</h2>
+				</header>
+				<form action='/discussion' method="POST" >
+					<div class="container 75%">
+						<div class="row uniform 50%">
+							<div class="6u 12u$(xsmall)">
+								<input name="name" placeholder="Name" type="text" />
+							</div>
+							<div class="6u$ 12u$(xsmall)">
+								<input name="email" placeholder="Email" type="email" />
+							</div>
+							<div class="12u$">
+								<textarea name="message" placeholder="Message" rows="4"></textarea>
+							</div>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" class="special" value="Submit" /></li>
+						<li><input type="reset" class="alt" value="Reset" /></li>
+					</ul>
+				</form>
+			</div>
+		</section>
 		<!-- Footer -->
 		<footer id="footer">
 			<div class="inner">
@@ -134,7 +117,7 @@
 				<ul class="copyright">
 					<li>&copy; Untitled.</li>
 					<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
-					<li>Design: Modified from <a href="http://templated.co">TEMPLATED</a>.</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
 				</ul>
 			</div>
 		</footer>
