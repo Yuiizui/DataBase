@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-	<title>Generic - Retrospect by TEMPLATED</title>
+	<title>Search</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -59,8 +59,8 @@
 				<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
 				{% for user in users %}
 				<p>
+					<font size="7" style="color:black">{{user.cTitle}}</font>
 					<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
-					課程名稱 (Title): {{user.cTitle}}
 					<br><br>
 					語言 (Language): {{user.cLanguage}}
 					<br><br>
