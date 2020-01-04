@@ -74,7 +74,11 @@
 					<br><br>
 					課程分類 (Label): {{user.label.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
-					需先修課程 (Pre): {{user.pre}}
+					需先修課程 (Pre): 
+					<br>
+					{% for p in user.pre %}
+					{{p.replace('[','').replace(']',',').replace("'",'')}}
+					{% endfor %}
 				</p>
 				<style>
 					hr.style-one {
