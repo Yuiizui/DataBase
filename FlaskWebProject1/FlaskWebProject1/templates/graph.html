@@ -42,14 +42,14 @@
 					<p>Searching for Advance Course and Prerequisite Course</p>
 				</header>
 				{% for node in nodes %}
-                
-				<form name='form' id='form' method='POST' action='/graph'>
-                    <p>{{node.name}}</p>
-                    <input type="hidden" name="node" value="{{node.id}}">
-					<input type="submit" name="relation" value="prerequisite" />
-                    <input type="submit" name="relation" value="advance" />
-				</form>
-                
+                <div style="outline: 3px solid gray;text-align:center;">
+    				<form name='form' id='form' method='POST' action='/graph'>
+                        <p><b>{{node.name}}</b></p>
+                        <input type="hidden" name="node" value="{{node.id}}">
+    					<input type="submit" name="relation" value="prerequisite" />
+                        <input type="submit" name="relation" value="advance" />
+    				</form>
+                </div>
 				{% endfor %}
 
 
