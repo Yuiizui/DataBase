@@ -65,12 +65,13 @@ def about(name= None):
     # coursemap_user = jsonify(student_detail_list)
     # users1 = mongo.db.users1.find()
     # users2 = mongo.db.users2.find()
-    users3 = mongo.db.all_course_detail.find()
+    #users3 = mongo.db.all_course_detail.find()
     # student_detail = mongo.db.grade.find()
     # print(student_detail.count())
     # if student_detail.count() is 0:
     #     for k, v in student_detail_list.items():
     #         mongo.db.grade.insert(v)
+    users3 = ''
     if name is None:
         if users3 is not None:
             print(request.method)
@@ -82,9 +83,9 @@ def about(name= None):
                 print(tmp)
                 return render_template('search.html',  users=tmp)
             else:
-                return render_template('search.html',  users=users3)
+                return render_template('search.html',  users='')
         else:
-            return 'No user found!'
+            return render_template('search.html',  users='')
     # else:
     #     user = mongo.db.users.find_one({'name': name})
     #     if user is not None:
