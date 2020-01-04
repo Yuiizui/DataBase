@@ -62,7 +62,7 @@
 
 					<a href="{{user.cDirectLink}}"><font size="7" style="color:black">{{user.cTitle}}</font></a>
 					{% if user.cPhotoLink  %}
-						<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
+					<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
 					{% else %}
 					{% endif %}
 
@@ -76,18 +76,19 @@
 					<br><br>
 					{% else %}
 					{% endif %}
-					授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
-					<br><br>
+					{% if user.cAuthor|length %}
+						授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
+						<br><br>
+					{% endif %}
 					課程分類 (Label): {{user.label.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
-
-					需先修課程 (Pre):
-
-
-					{% for p in user.pre %}
-					{{p.replace('[','').replace(']',',').replace("'",'')}}
-					{% endfor %}
-					<br>
+					{% if user.pre|length %}
+						需先修課程 (Pre):
+						{% for p in user.pre %}
+						{{p.replace('[','').replace(']',',').replace("'",'')}}
+						{% endfor %}
+						<br>
+					{% endif %}
 				</p>
 				<style>
 					hr.style-one {
