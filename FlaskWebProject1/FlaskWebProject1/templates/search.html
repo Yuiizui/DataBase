@@ -59,47 +59,35 @@
 				<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
 				{% for user in users %}
 				<p>
-<<<<<<< HEAD
-					<font size="7" style="color:black">{{user.cTitle}}</font>
+
+					<a href="{{user.cDirectLink}}"><font size="7" style="color:black">{{user.cTitle}}</font></a>
 					{% if user.cPhotoLink  %}
-					<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
+						<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
 					{% else %}
 					{% endif %}
-=======
-					<a href="{{user.cDirectLink}}"><font size="7" style="color:black">{{user.cTitle}}</font></a>
-					<img align='right' src="{{user.cPhotoLink}}" style="width:135px;height:200px;">
->>>>>>> c108c85c64aa2152948cd2a78927a6a4cb9af36d
+
 					<br><br>
 					語言 (Language): {{user.cLanguage}}
 					<br><br>
 					課程提供者 (Provider): {{user.cProvider}}
 					<br><br>
-<<<<<<< HEAD
-					網站連結 (DirectLink): <a href={{user.cDirectLink}} target="_blank">{{user.cDirectLink}}</a>
-					<br><br>
 					{% if user.cDescription|length %}
-						描述 (Description): {{user.cDescription}}
-						<br><br>
-					{% else %}
-
-					{% endif %}
-=======
 					描述 (Description): {{user.cDescription}}
 					<br><br>
->>>>>>> c108c85c64aa2152948cd2a78927a6a4cb9af36d
+					{% else %}
+					{% endif %}
 					授課教師 (Author): {{user.cAuthor.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
 					課程分類 (Label): {{user.label.replace('[','').replace(']','').replace("'",'')}}
 					<br><br>
-<<<<<<< HEAD
+
 					需先修課程 (Pre):
-=======
-					需先修課程 (Pre): 
->>>>>>> c108c85c64aa2152948cd2a78927a6a4cb9af36d
+
+
 					{% for p in user.pre %}
 					{{p.replace('[','').replace(']',',').replace("'",'')}}
 					{% endfor %}
-                    <br>
+					<br>
 				</p>
 				<style>
 					hr.style-one {
