@@ -137,8 +137,9 @@ def user(name=None):
 @app.route('/graph/<string:name>',methods=['GET', 'POST'])
 def graph(name= None):
     
-        
-    graph = Graph("https://hobby-fljoljlkjmgggbkedobbdgel.dbs.graphenedb.com:24780/db/data/", username="adm", password="b.PZvb6ZSYxW2J.MTZodvtz6QoxLrWR",secure=True)
+    #https://hobby-fljoljlkjmgggbkedobbdgel.dbs.graphenedb.com:24780/db/data/
+    #bolt://hobby-fljoljlkjmgggbkedobbdgel.dbs.graphenedb.com:24787
+    graph = Graph("bolt://hobby-fljoljlkjmgggbkedobbdgel.dbs.graphenedb.com:24787", username="adm", password="b.PZvb6ZSYxW2J.MTZodvtz6QoxLrWR",secure=True)
     if request.method == 'GET':
         nodes=graph.run('MATCH (s:Area) RETURN s.id AS id,s.name AS name').data()
         return render_template(
