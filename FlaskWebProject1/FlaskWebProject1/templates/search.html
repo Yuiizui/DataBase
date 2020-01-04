@@ -59,13 +59,12 @@
 				<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
 				{% for user in users %}
 				<p>
+					<img align='right' src={{user.cPhotoLink}} style="width:135px;height:200px;">
 					課程名稱 (Title): {{user.cTitle}}
 					<br><br>
 					語言 (Language): {{user.cLanguage}}
 					<br><br>
 					課程提供者 (Provider): {{user.cProvider}}
-					<br><br>
-					相片連結 (PhotoLink): <a href={{user.cPhotoLink}} target="_blank">{{user.cPhotoLink}}</a>
 					<br><br>
 					網站連結 (DirectLink): <a href={{user.cDirectLink}} target="_blank">{{user.cDirectLink}}</a>
 					<br><br>
